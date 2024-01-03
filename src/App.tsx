@@ -10,9 +10,9 @@ function App() {
 			<div>
 				<h1>Markdown Previewer</h1>
 				<div>
-					<div>
+					<div id="editor">
 						<h2>Editor</h2>
-						<textarea name="editor" id="editor" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
+						<textarea name="" id="" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
 					</div>
 					<div id="preview">
 						<h2>Previewer</h2>
