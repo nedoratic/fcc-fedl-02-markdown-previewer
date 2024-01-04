@@ -70,11 +70,17 @@ function App() {
 	return (
 		<>
 			<div className="app">
-				<h1 className="app__title">Markdown Previewer</h1>
-				<div className="app__windows">
-					<textarea className="app__windows__editor" name="editor" id="editor" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
-					<div className="app__windows__previewer" id="preview">
-						<ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownText}</ReactMarkdown>
+				<h1 className="app__title">Markdown Previewer App</h1>
+				<div className="app__frames">
+					<div className="app__frame">
+						<h2 className="app__frame__title">Markdown Editor</h2>
+						<textarea className="app__windows__editor" name="editor" id="editor" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
+					</div>
+					<div className="app__frame">
+						<h2 className="app__frame__title">Markdown Previewer</h2>
+						<div className="app__windows__previewer" id="preview">
+							<ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownText}</ReactMarkdown>
+						</div>
 					</div>
 				</div>
 			</div>
