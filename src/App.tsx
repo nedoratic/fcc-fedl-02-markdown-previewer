@@ -10,12 +10,13 @@ const markdownTemplate = `
 
 ### And here are some other markdown options:
 
-Here is a random code snippet, \`<div></div>\`.
+Here is a random code snippet: \`<div>Some code goes here</div>\`
 
 To create one you surround your code with backticks.
 
+This is multi-line code:
+
 \`\`\`
-// this is multi-line code:
 function anotherCodeExample(firstPar, secondPar) {
 	if (firstPar === lastPar) {
 		return "The arguments you have entered are of the same type and value.";
@@ -68,11 +69,11 @@ function App() {
 
 	return (
 		<>
-			<div>
-				<h1>Markdown Previewer</h1>
-				<div>
-					<textarea name="editor" id="editor" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
-					<div id="preview">
+			<div className="app">
+				<h1 className="app__title">Markdown Previewer</h1>
+				<div className="app__windows">
+					<textarea className="app__windows__editor" name="editor" id="editor" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
+					<div className="app__windows__previewer" id="preview">
 						<ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownText}</ReactMarkdown>
 					</div>
 				</div>
