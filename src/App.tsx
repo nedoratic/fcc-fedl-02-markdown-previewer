@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
 import './App.css';
 
 const markdownTemplate = `
@@ -51,6 +52,8 @@ You can also create ordered lists by using number one followed by dot instead of
 1. List item two
 1. List item three
 
+You can also separate the text form a single line into a new row<br>like this.
+
 You can add images like this:
 
 ![Alternative text for the image](https://res.cloudinary.com/practicaldev/image/fetch/s--U_TEB7k7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/i/5zhubbpov3m3ly9a1t9c.png)
@@ -70,7 +73,7 @@ function App() {
 				<div>
 					<textarea name="editor" id="editor" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
 					<div id="preview">
-						<ReactMarkdown>{markdownText}</ReactMarkdown>
+						<ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdownText}</ReactMarkdown>
 					</div>
 				</div>
 			</div>
