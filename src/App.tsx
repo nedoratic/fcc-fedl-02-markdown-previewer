@@ -2,20 +2,74 @@ import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
 
+const markdownTemplate = `
+# This is a heading
+
+## This is a sub-heading
+
+### And here are some other markdown options:
+
+Here is a random code snippet, \`<div></div>\`.
+
+To create one you surround your code with backticks.
+
+\`\`\`
+// this is multi-line code:
+function anotherCodeExample(firstPar, secondPar) {
+	if (firstPar === lastPar) {
+		return "The arguments you have entered are of the same type and value.";
+	} else {
+		return "The arguments you have entered are not of the same type and value";
+	}
+}
+\`\`\`
+
+To create one you surround your multi-line code with three backticks.
+
+You can also make text **bold** by surrounding it with double asterisk.
+
+You can make text _italic_ by surrounding it with underscore.
+
+You can mix and match **_bold-italic_**.
+
+You can create a blockquote by adding greater than sing in front of the text.
+
+> Blockquote text here 
+
+You can also create links like this: [Visit My GitHub Page](https://github.com/nedoratic).
+
+You can create some lists by using dashes and indentation like this:
+
+- List name
+	- List item
+	- List item
+	- List item
+
+You can also create ordered lists by using number one followed by dot instead of using dashes like this:
+
+1. List item one
+1. List item two
+1. List item three
+
+You can add images like this:
+
+![Alternative text for the image](https://res.cloudinary.com/practicaldev/image/fetch/s--U_TEB7k7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/i/5zhubbpov3m3ly9a1t9c.png)
+
+To find out more you can visit this website [markdown cheat sheet](https://www.markdownguide.org/cheat-sheet/)
+
+Have fun using this markdown app.
+`;
+
 function App() {
-	const [markdownText, setMarkdownText] = useState<string>('');
+	const [markdownText, setMarkdownText] = useState<string>(markdownTemplate);
 
 	return (
 		<>
 			<div>
 				<h1>Markdown Previewer</h1>
 				<div>
-					<div id="editor">
-						<h2>Editor</h2>
-						<textarea name="" id="" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
-					</div>
+					<textarea name="editor" id="editor" value={markdownText} onChange={(e) => setMarkdownText(e.target.value)}></textarea>
 					<div id="preview">
-						<h2>Previewer</h2>
 						<ReactMarkdown>{markdownText}</ReactMarkdown>
 					</div>
 				</div>
